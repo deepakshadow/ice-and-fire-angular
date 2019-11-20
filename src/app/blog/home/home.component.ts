@@ -12,6 +12,8 @@ import { BlogService } from './blog.service';
 export class HomeComponent implements OnInit, OnDestroy {
 
   allData: any = [];
+  view: string = '';
+  search: string = '';
   bookSubscription: Subscription;
   characterSubscription: Subscription;
   houseSubscription: Subscription;
