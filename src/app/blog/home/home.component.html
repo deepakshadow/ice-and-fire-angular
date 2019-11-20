@@ -7,7 +7,7 @@
     <div class="col-12 col-md-4 col-lg-3">
       <div class="form-group">
         <select class="form-control form-control-sm" [(ngModel)]="view">
-          <option value="all" ng-selected="true">All Category</option>
+          <option value="all" selected>All Category</option>
           <option *ngFor="let category of categories" [value]="category">{{
             category
           }}</option>
@@ -31,7 +31,7 @@
   <div class="row" *ngIf="allData?.length != 0">
     <div
       class="col-12 col-xs-9 col-sm-6 col-md-4 col-lg-4"
-      *ngFor="let data of allData | sort | select: view | filter: search"
+      *ngFor="let data of allData | filter: search | select: view | sort "
     >
       <div *ngIf="data.isbn">
         <div class="card mb-3 border-danger shadow-css">

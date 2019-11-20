@@ -123,8 +123,13 @@
               "devServerTarget": "ice-and-fire-app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ice-and-fire-app"
 }

@@ -25,10 +25,10 @@ export class BookComponent implements OnInit, OnDestroy {
       this.blogService.getABook(+param['id']).subscribe((next) => {
         this._book = next;
         this.isLoaded = false;
-        // console.log(`TCL: BookComponent -> ngOnInit -> this._book`, this._book);
+        // // console.log(`TCL: BookComponent -> ngOnInit -> this._book`, this._book);
       }, (error) => {
         this.isLoaded = false;
-        console.log(`TCL: BookComponent -> ngOnInit -> error`, error);
+        // console.log(`TCL: BookComponent -> ngOnInit -> error`, error);
       })
     })
   }
@@ -38,7 +38,7 @@ export class BookComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log(`book view destroyed`);
+    // console.log(`book view destroyed`);
     this.dataSubscription.unsubscribe();
   }
 

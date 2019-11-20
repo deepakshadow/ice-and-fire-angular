@@ -25,10 +25,10 @@ export class CharacterComponent implements OnInit, OnDestroy {
       this.blogService.getACharacter(+param['id']).subscribe((next) => {
         this._character = next;
         this.isLoaded = false;
-        // console.log(`TCL: CharacterComponent -> ngOnInit -> this._character`, this._character);
+        // // console.log(`TCL: CharacterComponent -> ngOnInit -> this._character`, this._character);
       }, (error) => {
         this.isLoaded = false;
-        console.log(`TCL: CharacterComponent -> ngOnInit -> error`, error);
+        // console.log(`TCL: CharacterComponent -> ngOnInit -> error`, error);
       })
     })
   }
@@ -38,7 +38,7 @@ export class CharacterComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log(`character view destroyed`);
+    // console.log(`character view destroyed`);
     this.dataSubscription.unsubscribe();
   }
 

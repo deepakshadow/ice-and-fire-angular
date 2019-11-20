@@ -25,10 +25,10 @@ export class HouseComponent implements OnInit, OnDestroy {
       this.blogService.getAHouse(+param['id']).subscribe((next) => {
         this._house = next;
         this.isLoaded = false;
-        // console.log(`TCL: HouseComponent -> ngOnInit -> this._house`, this._house);
+        // // console.log(`TCL: HouseComponent -> ngOnInit -> this._house`, this._house);
       }, (error) => {
         this.isLoaded = false;
-        console.log(`TCL: HouseComponent -> ngOnInit -> error`, error);
+        // console.log(`TCL: HouseComponent -> ngOnInit -> error`, error);
       })
     })
   }
@@ -38,7 +38,7 @@ export class HouseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log(`house view destroyed`);
+    // console.log(`house view destroyed`);
     this.dataSubscription.unsubscribe();
   }
 }

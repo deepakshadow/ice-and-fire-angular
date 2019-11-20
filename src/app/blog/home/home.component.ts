@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       // console.log(`TCL: HomeComponent -> getHouses -> this.allData`, this.allData);
       this.isLoaded = false;
     }, (error) => {
-      console.log(`TCL: HomeComponent -> getHouses -> error`, error);
+      // console.log(`TCL: HomeComponent -> getHouses -> error`, error);
       this.isLoaded = false;
     })
   }
