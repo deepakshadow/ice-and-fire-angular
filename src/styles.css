@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url('https://www.syfy.com/sites/syfy/files/wire/legacy/gameofthrones.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+}

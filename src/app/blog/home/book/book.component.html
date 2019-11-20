@@ -1,0 +1,35 @@
+<br /><br /><br /><br />
+<div *ngIf="isLoaded">
+    <app-spinner></app-spinner>
+  </div>
+<div class="container" *ngIf="!isLoaded" style="font-weight: bolder;">
+    <div class="row">
+        <div class="col" *ngIf="_book">
+            <button class="btn btn-outline-dark btn-sm" (click)="goBack()">Back</button>
+            <br>
+            <br>
+            <h2 *ngIf="_book.name">{{_book.name}}</h2>
+            <p *ngIf="_book.authors">Authors:
+                <span *ngFor="let author of _book.authors; let first = first; let last = last">
+                    {{author}}{{last ? '' : ', '}}
+                </span>
+            </p>
+            <p *ngIf="_book.country">Country: {{_book.country}}</p>
+            <p *ngIf="_book.mediaType">Media Type: {{_book.mediaType}}</p>
+            <p *ngIf="_book.isbn">Isbn: {{_book.isbn}}</p>
+            <p *ngIf="_book.numberOfPages">No Of Pages: {{_book.numberOfPages}}</p>
+            <p *ngIf="_book.released">Released On : {{_book.released | date: "medium"}}</p>
+            <p *ngIf="_book.url">URL: <a [routerLink]="['/book', _book.url.split('/').pop()]">{{_book.url}}</a></p>
+            <p *ngIf="_book.characters">Characters: 
+                <span *ngFor="let character of _book.characters; let first = first; let last = last">
+                    <a [routerLink]="['/character', character.split('/').pop()]">{{character}}</a>{{last ? '' : ', '}}</span>
+            </p>
+            <p *ngIf="_book.povCharacters">Pov Characters: 
+                <span *ngFor="let povCharacter of _book.povCharacters; let first = first; let last = last">
+                    <a [routerLink]="['/character', povCharacter.split('/').pop()]">{{povCharacter}}</a>{{last ? '' : ', '}}
+                </span>
+            </p>
+            <br><br>
+        </div>
+    </div>
+</div>

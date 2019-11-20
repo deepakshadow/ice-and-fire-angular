@@ -1,0 +1,96 @@
+<br /><br /><br /><br />
+<div *ngIf="isLoaded">
+  <app-spinner></app-spinner>
+</div>
+<div class="container" *ngIf="!isLoaded">
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3">
+      <div class="form-group">
+        <select class="form-control form-control-sm" [(ngModel)]="view">
+          <option value="all" ng-selected="true">All Category</option>
+          <option *ngFor="let category of categories" [value]="category">{{
+            category
+          }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col-12 col-md-4 col-lg-3">
+      <div class="form-group">
+        <input
+          type="text"
+          [(ngModel)]="search"
+          class="form-control form-control-sm"
+          placeholder="Search"
+        />
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row" *ngIf="allData?.length != 0">
+    <div
+      class="col-12 col-xs-9 col-sm-6 col-md-4 col-lg-4"
+      *ngFor="let data of allData | sort | select: view | filter: search"
+    >
+      <div *ngIf="data.isbn">
+        <div class="card mb-3 border-danger shadow-css">
+          <img
+            src="https://cdn.vox-cdn.com/thumbor/y7t66NAXwyPBLNn7XehuWz9r-ok=/0x0:2040x1360/1200x800/filters:focal(866x638:1192x964)/cdn.vox-cdn.com/uploads/chorus_image/image/59517803/mdoying_180425_2491_0001.0.jpg"
+            class="card-img-top"
+            alt="book"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ data.name }}</h5>
+            <p class="card-text">{{ data.authors[0] }}</p>
+            <a
+              class="btn btn-outline-danger btn-sm"
+              [routerLink]="['/book', data.url.split('/').pop()]"
+              >Read</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="data.gender">
+        <div class="card mb-3 border-secondary shadow-css">
+          <img
+            src="https://femina.wwmindia.com/content/2019/apr/gotopenerthumbnail1556277131.jpg"
+            class="card-img-top"
+            alt="characters"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ data.aliases }}</h5>
+            <p class="card-text">{{ data.gender }}</p>
+            <a
+              class="btn btn-outline-secondary btn-sm"
+              [routerLink]="['/character', data.url.split('/').pop()]"
+              >Read</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="data.region">
+        <div class="card mb-3 border-success shadow-css">
+          <img
+            src="https://img.playbuzz.com/image/upload/ar_1.5,c_pad,f_jpg,b_auto/q_auto:good,f_auto,fl_lossy,w_480,c_limit/cdn/9d490eac-0135-4c27-8e7f-e16cd0df607b/075ea4fc-4a5e-4d4e-8d03-d173c147c24a_560_420.jpg"
+            class="card-img-top"
+            alt="houses"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ data.name }}</h5>
+            <p class="card-text">{{ data.region }}</p>
+            <a
+              class="btn btn-outline-success btn-sm"
+              [routerLink]="['/house', data.url.split('/').pop()]"
+              >Read</a
+            >
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
+<br><br>
